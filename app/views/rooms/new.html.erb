@@ -1,2 +1,4 @@
-<h1>Rooms#new</h1>
-<p>Find me in app/views/rooms/new.html.erb</p>
+<%= form_tag rooms_path, method: :post do %>
+  Room title: <input type="text" name="title">
+  <input type="submit" value="Create">
+<% end %>

@@ -1,2 +1,11 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<h1><%= @room.title %></h1>
+<% @room.messages.each do |message| %>
+  <div>
+    <h3><%= message.user.email %>:</h3>
+    <p><%= message.content %></p>
+  </div>
+<% end %>
+<%= form_tag room_messages_path(@room), method: :post do %>
+  <div><textarea name="content" cols="30" rows="10"></textarea></div>
+  <div><input type="submit" value="Submit message"></div>
+<% end %>
