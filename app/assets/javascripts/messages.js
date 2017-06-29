@@ -1,11 +1,10 @@
 App.messages = App.cable.subscriptions.create('MessagesChannel', {  
   received: function(data) {
-    console.log("this is getting hit");
-    $("#messages").removeClass('hidden')
-    return $('#messages').append(this.renderMessage(data));
+    $("#messages-" + data.room_id).removeClass('hidden')
+    return $('#messages-' + data.room_id).append(this.renderMessage(data));
   },
   renderMessage: function(data) {
-    console.log("this is also getting hit");
+    $(".form-control").val('');
     return "<p><b>" + data.user + ": </b>" + data.message + "</p>";
   }
 });
