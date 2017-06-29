@@ -153,3 +153,4 @@ function submitNewMessage(){
 ```
 
 This will basically watch the typing going on in the textarea field with the class of "form control", and if the enter key is pressed, it will send their message and clear the input box.
+

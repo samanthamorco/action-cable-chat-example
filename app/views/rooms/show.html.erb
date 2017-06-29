@@ -11,5 +11,5 @@
   <div>
     <%= text_area_tag :content, "", class: "form-control", data: { textarea: "message" }%>
   </div>
-  <div><input type="submit" value="Submit message"></div>
+  <%= submit_tag "Send", data: {send: "message"}%>
 <% end %>
