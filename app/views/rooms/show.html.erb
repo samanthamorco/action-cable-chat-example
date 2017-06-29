@@ -1,9 +1,6 @@
 <h1><%= @room.title %></h1>
 <% @room.messages.each do |message| %>
-  <div>
-    <h3><%= message.user.email %>:</h3>
-    <p><%= message.content %></p>
-  </div>
+  <%= render "messages/message", message: message %>
 <% end %>
 <%= form_tag room_messages_path(@room), method: :post do %>
   <div><textarea name="content" cols="30" rows="10"></textarea></div>
