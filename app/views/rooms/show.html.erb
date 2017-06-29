@@ -1,8 +1,15 @@
 <h1><%= @room.title %></h1>
-<% @room.messages.each do |message| %>
-  <%= render "messages/message", message: message %>
+<% if @room.messages.any? %>
+  <div id="messages">
+    <%= render partial: 'messages/message', collection: @room.messages%>
+  </div>
+<% else %>
+  <div class="hidden" id="messages">
+  </div>
 <% end %>
-<%= form_tag room_messages_path(@room), method: :post do %>
-  <div><textarea name="content" cols="30" rows="10"></textarea></div>
+<%= form_tag room_messages_path(@room), remote: true, method: :post do %>
+  <div>
+    <%= text_area_tag :content, "", class: "form-control", data: { textarea: "message" }%>
+  </div>
   <div><input type="submit" value="Submit message"></div>
 <% end %>
